@@ -10,6 +10,16 @@ window.onload = () => {
   // för att ändra på innehållet i en webbsida.
   let ctx = canvas.getContext("2d");
   
+  // UTMANING: DOM navigation
+  // använd er av drawLine och drawElem funktionerna
+  // för att rita upp hela HTML strukturen i <body> 
+  // elementet på sidan'
+  //
+  // Läs på https://www.w3schools.com/Js/js_htmldom_navigation.asp
+  // för att se hur ni kan automatisera processen istället
+  // för att göra som jag gjort nedan, skrivit för hand.
+
+  // Exempel kod
   drawLine(ctx, 200, 100, 100, 200);
   drawLine(ctx, 200, 100, 300, 200);
 
