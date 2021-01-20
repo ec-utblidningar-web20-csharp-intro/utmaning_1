@@ -1,4 +1,6 @@
 window.onload = () => {
+  // Canvas är ett HTML element som man kan rita
+  // vad som helst i via JavaScript kod.
   let canvas = document.querySelector("canvas");
 
   setCanvasRenderResolutionToStyleSize(canvas);
@@ -9,14 +11,36 @@ window.onload = () => {
   // för att ändra på innehållet i en webbsida.
   let ctx = canvas.getContext("2d");
 
-  // UTMANING: DOM navigation
-  // använd er av drawLine och drawElem funktionerna
-  // för att rita upp hela HTML strukturen i <body>
-  // elementet på sidan'
-  //
-  // Läs på https://www.w3schools.com/Js/js_htmldom_navigation.asp
-  // för att se hur ni kan automatisera processen istället
-  // för att göra som jag gjort nedan, skrivit för hand.
+  /* UTMANING: DOM navigation
+   använd er av 'drawLine' och 'drawElem' funktionerna
+   för att visuellt visa HTML elementen och deras relationer
+
+   Läs på https://www.w3schools.com/Js/js_htmldom_navigation.asp
+   för att se hur ni kan få tag på ett element via ett annat
+   
+   1: Rita upp ett element med 'drawElem'
+
+   2: Gör en for-loop som ritar upp ett elements '.children'
+
+   3: Lägg till att linjer ritas upp mellan elementet och alla dess barn
+
+   4: Gör en for-loop som håller koll på generationer. 
+      gen = 0, 1, 2, ..
+
+      Vid gen = 0 så ritar vi upp alla barn som innan.
+      
+      Men innan vi går vidare till gen = 1 så sparar vi ett barn
+      som vi använder sen i gen = 1, och ritar upp alla dess barn.
+
+      Sen sparas ett barn där till gen = 2 osv.
+      
+   5: Se till att det barn som har flest egna barn väljs
+      till nästa iteration/generation.
+   
+   6: Låt alla barn få komma vidare som en lista till
+      nästa generation. Sen fylls nästa lista med barn
+      med alla tidigare barns barn.
+  */
 
   // Exempel kod
   let body = document.querySelector("body");
@@ -62,6 +86,7 @@ let drawElem = (ctx, elem, x, y) => {
 };
 
 let drawLine = (ctx, x0, y0, x1, y1) => {
+  // rita en linje från punkt 0 till 1
   ctx.beginPath();
   ctx.moveTo(x0, y0);
   ctx.lineTo(x1, y1);
@@ -74,7 +99,7 @@ let setCanvasRenderResolutionToStyleSize = (canvas) => {
   canvas.height = posInfo.height;
 };
 
-let lösningsFörslag = (ctx, startElem, ritaLinjer=true) => {
+let lösningsFörslag = (ctx, startElem, ritaLinjer = true) => {
   //I början har vi bara en förälder
   let föräldrar = [startElem];
 
