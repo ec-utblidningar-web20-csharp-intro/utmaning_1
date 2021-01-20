@@ -69,7 +69,7 @@ let setCanvasRenderResolutionToStyleSize = (canvas) => {
   canvas.height = posInfo.height;
 };
 
-let lösningsFörslag = (startElem) => {
+let lösningsFörslag = (ctx, startElem) => {
   //I början har vi bara en förälder
   let föräldrar = [startElem];
 
