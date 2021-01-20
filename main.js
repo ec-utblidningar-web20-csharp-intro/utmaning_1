@@ -19,7 +19,6 @@ window.onload = () => {
   // för att göra som jag gjort nedan, skrivit för hand.
 
   // Exempel kod
-  /*
   let body = document.querySelector("body");
 
   drawLine(ctx, 200, 100, 100, 200);
@@ -28,10 +27,10 @@ window.onload = () => {
   drawElem(ctx, body, 200, 100);
   drawElem(ctx, body.children[0], 100, 200);
   drawElem(ctx, body.children[1], 300, 200);
-  */
 
-  let body = document.querySelector("body");
-  lösningsFörslag(ctx, body);
+  // Ett kösningsförslag
+  //let body = document.querySelector("body");
+  //lösningsFörslag(ctx, body);
 };
 
 // Ritar upp en representation av ett element
