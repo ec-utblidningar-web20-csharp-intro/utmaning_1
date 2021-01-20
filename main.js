@@ -28,9 +28,14 @@ window.onload = () => {
   drawElem(ctx, body.children[0], 100, 200);
   drawElem(ctx, body.children[1], 300, 200);
 
-  // Ett kösningsförslag
-  //let body = document.querySelector("body");
-  //lösningsFörslag(ctx, body);
+  // Ett lösningsförslag
+  /*
+  let body = document.querySelector("body");
+  // en gång med linjer
+  lösningsFörslag(ctx, body);
+  // en gång med bara lådor
+  lösningsFörslag(ctx, body, ritaLinjer=false);
+  */
 };
 
 // Ritar upp en representation av ett element
@@ -69,7 +74,7 @@ let setCanvasRenderResolutionToStyleSize = (canvas) => {
   canvas.height = posInfo.height;
 };
 
-let lösningsFörslag = (ctx, startElem) => {
+let lösningsFörslag = (ctx, startElem, ritaLinjer=true) => {
   //I början har vi bara en förälder
   let föräldrar = [startElem];
 
@@ -115,7 +120,7 @@ let lösningsFörslag = (ctx, startElem) => {
       // Kom ihåg förälderns plats (framtida farfars plats)
       förälder.plats = plats;
 
-      if (rad !== 0) {
+      if (rad !== 0 && ritaLinjer) {
         // Om det inte är första raden
         // kolla farfars plats
         let farfPlats = förälder.parentNode.plats;
