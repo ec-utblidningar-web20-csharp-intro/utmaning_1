@@ -1,5 +1,4 @@
 window.onload = () => {
-  let body = document.querySelector("body");
   let canvas = document.querySelector("canvas");
 
   setCanvasRenderResolutionToStyleSize(canvas);
@@ -20,6 +19,7 @@ window.onload = () => {
   // för att göra som jag gjort nedan, skrivit för hand.
 
   // Exempel kod
+  let body = document.querySelector("body");
   drawLine(ctx, 200, 100, 100, 200);
   drawLine(ctx, 200, 100, 300, 200);
 
@@ -34,7 +34,11 @@ let drawElem = (ctx, elem, x, y) => {
   let w = 100;
   let h = 60;
 
-  // rita rektangeln
+  // fyll insidan med vitt
+  ctx.fillStyle = "white";
+  ctx.fillRect(x - w / 2, y - h / 2, w, h);
+
+  // rita rektangelns kant
   ctx.beginPath();
   ctx.rect(x - w / 2, y - h / 2, w, h);
   ctx.stroke();
@@ -43,6 +47,7 @@ let drawElem = (ctx, elem, x, y) => {
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
   ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
   ctx.fillText(elem.tagName, x, y);
 };
 
